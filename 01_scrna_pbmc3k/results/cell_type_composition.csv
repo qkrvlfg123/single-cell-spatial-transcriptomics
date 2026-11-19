@@ -1,0 +1,10 @@
+leiden,cell_type,n_cells,pct
+0,Naive T,512,19.4
+1,CD8 T,303,11.5
+2,Memory CD4 T,633,24.0
+3,NK,155,5.9
+4,B,344,13.0
+5,FCGR3A+ Mono,205,7.8
+6,CD14+ Mono,435,16.5
+7,DC,38,1.4
+8,Platelet,13,0.5
