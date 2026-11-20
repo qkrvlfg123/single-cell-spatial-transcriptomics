@@ -5,15 +5,15 @@
 입력 : data/pbmc3k_step3_annotated.h5ad
 출력 : results/de_*.csv (깊이 맞춤 = 본 결과, naive = 비교용), results/enrich_*.csv, results/gsea_hallmark.csv, figures/14~17_*.png
 
-[왜 이 비교인가]
+[이 비교를 고른 이유]
   3단계의 마커 검정은 "한 클러스터 vs 나머지 전부"라서 계통 차이(골수계 vs 림프계)가 결과를 지배한다.
   같은 계통 안의 두 집단을 직접 비교해야 "둘을 구분 짓는 기능 차이"가 드러난다.
   단핵구는 classical(CD14++CD16−) → intermediate → non-classical(CD14+CD16++)로 성숙하며
   기능이 다르다고 잘 알려져 있어, 분석 결과를 기존 지식과 대조해 검증하기 좋다.
 
 [두 가지 경로분석을 함께 쓴다]
-  ORA  (over-representation): 유의한 DE 유전자 "목록"이 특정 gene set에 우연보다 많이 겹치는가 (Fisher 검정)
-  GSEA (prerank)           : 컷오프 없이 "전체 유전자 순위"에서 gene set이 한쪽 끝에 몰려 있는가
+  ORA  (over-representation): 유의한 DE 유전자 "목록"이 특정 gene set과 우연보다 많이 겹치는지 검정 (Fisher 검정)
+  GSEA (prerank)           : 컷오프 없이 "전체 유전자 순위"에서 gene set이 한쪽 끝에 몰려 있는지 검정
 
 [실행]
     .venv\\Scripts\\python.exe 01_scrna_pbmc3k\\step4_de_pathway.py

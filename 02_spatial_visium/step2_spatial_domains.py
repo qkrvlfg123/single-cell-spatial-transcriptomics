@@ -118,7 +118,7 @@ per["expected_by_chance"] = (per["n_spots"] / adata.n_obs).round(3)
 per.round(3).to_csv(RES / "cluster_spatial_coherence.csv", index=False)
 print(per.round(3).to_string(index=False))
 
-# 이웃 enrichment: 어떤 도메인끼리 맞닿아 있는가 (z-score, 순열 검정)
+# 이웃 enrichment: 서로 맞닿아 있는 도메인 쌍 확인 (z-score, 순열 검정)
 sq.gr.nhood_enrichment(adata, cluster_key="cluster", seed=SEED, show_progress_bar=False)
 sq.pl.nhood_enrichment(adata, cluster_key="cluster", cmap="RdBu_r", vmin=-30, vmax=30, figsize=(5, 5))
 plt.savefig(FIG / "10_nhood_enrichment.png", dpi=150, bbox_inches="tight")

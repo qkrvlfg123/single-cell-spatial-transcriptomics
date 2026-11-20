@@ -6,7 +6,7 @@
 
 [SVG란]
   발현이 조직 위에서 무작위가 아니라 "공간적 패턴"을 이루는 유전자.
-  HVG는 "spot 간 변동이 큰가"만 보고 위치는 보지 않는다. SVG는 "가까운 spot끼리 값이 비슷한가"를 본다.
+  HVG는 spot 간 변동의 크기만 보고 위치는 보지 않는다. SVG는 가까운 spot끼리 값이 비슷한지를 본다.
   → 변동이 커도 위치와 무관하게 흩어져 있으면 HVG이지만 SVG는 아니다.
 
 [Moran's I]  공간 자기상관 통계량
@@ -65,7 +65,7 @@ svg["hvg_rank"] = adata.var["highly_variable_rank"].loc[svg.index].to_numpy()
 X = pd.DataFrame(adata[:, svg.index].X.toarray(), columns=svg.index)
 dom_mean = X.groupby(adata.obs["domain"].to_numpy()).mean()
 svg["peak_domain"] = dom_mean.idxmax()
-# 도메인이 유전자 발현 분산을 얼마나 설명하는가 (η² = 집단 간 제곱합 / 전체 제곱합).
+# 도메인이 유전자 발현 분산을 설명하는 정도 (η² = 집단 간 제곱합 / 전체 제곱합).
 # 1에 가까우면 "도메인 마커형" 패턴, 낮으면 도메인 경계와 무관한 패턴(구배, 도메인 내부 구조 등).
 n_k = adata.obs["domain"].value_counts().reindex(dom_mean.index).to_numpy()[:, None]
 ss_between = (n_k * (dom_mean - X.mean()) ** 2).sum()
