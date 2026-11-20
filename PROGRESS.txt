@@ -1,9 +1,9 @@
-프로젝트: single-cell-spatial-transcriptomics (단일세포 · 공간전사체 분석 포트폴리오)
+프로젝트: single-cell-spatial-transcriptomics (단일세포 · 공간전사체 분석)
 최종 갱신: 2026-11-20
 
 위치
   로컬   C:\Users\박혜윤\single-cell-spatial-transcriptomics
-  GitHub https://github.com/qkrvlfg123/single-cell-spatial-transcriptomics  (private)
+  GitHub https://github.com/qkrvlfg123/single-cell-spatial-transcriptomics  (public)
   ※ 작업 1·작업 2 모두 GitHub에 올라가 있음.
 
 ==================================================
@@ -41,8 +41,8 @@
   1. (완료) 작업 2의 4단계 deconvolution
   2. (완료) 루트 README에 작업 2 주요 결과 추가
   3. (완료) 작업 2 커밋·push
-  4. (완료) docs/interview_qa.md 에 작업 1·2의 단계별 문답 정리 (Q1~Q18, 단계마다 2~3문항)
-  5. 공개 전환은 보류 (private 유지, 2026-11-20 결정)
+  4. (완료) docs/analysis_notes.md 에 작업 1·2의 단계별 판단 근거 정리 (Q1~Q18, 단계마다 2~3문항)
+  5. (완료) 공개 전환
 
 ==================================================
 폴더 구조
@@ -51,7 +51,7 @@
   PROGRESS.txt                   이 문서
   01_scrna_pbmc3k/               작업 1: step1~4 스크립트, README, figures/, results/
   02_spatial_visium/             작업 2: step1~4 스크립트, README, figures/, results/
-  docs/interview_qa.md           면접 대비 Q&A
+  docs/analysis_notes.md         분석 노트 (단계별 판단 근거)
   data/                          자동 다운로드 데이터와 중간 산출물 (git 제외)
   .venv/                         Python 3.12 가상환경 (git 제외)
 
