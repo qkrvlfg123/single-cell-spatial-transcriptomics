@@ -3,7 +3,7 @@
 
 위치
   로컬   C:\Users\박혜윤\single-cell-spatial-transcriptomics
-  GitHub https://github.com/qkrvlfg123/single-cell-spatial-transcriptomics  (public, 2026-11-20 공개 전환)
+  GitHub https://github.com/qkrvlfg123/single-cell-spatial-transcriptomics  (private)
   ※ 작업 1·작업 2 모두 GitHub에 올라가 있음.
 
 ==================================================
