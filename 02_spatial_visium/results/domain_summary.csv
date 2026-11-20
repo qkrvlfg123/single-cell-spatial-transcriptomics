@@ -1,0 +1,20 @@
+domain,cluster,n_spots,same_cluster_neighbor_frac
+Cortex L1,1,117,0.486
+Cortex L2/3,5,158,0.701
+Cortex L4,16,143,0.711
+Cortex L5,8,185,0.704
+Cortex L6,17,203,0.756
+Piriform cortex,0,67,0.629
+Hippocampus CA1,12,42,0.476
+Hippocampus DG/CA3,11,72,0.72
+Hippocampus neuropil,10,194,0.643
+Thalamus (lateral),15,251,0.88
+Thalamus (medial),3,188,0.829
+GABAergic nuclei (TRN/ZI),4,114,0.716
+Hypothalamus,2,214,0.897
+Amygdala (medial/central),9,92,0.801
+Amygdala (basolateral),14,207,0.739
+Striatum,18,60,0.762
+White matter,6,248,0.643
+Ventricle (ependyma/ChP),13,56,0.514
+Meninges,7,72,0.437

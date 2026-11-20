@@ -1,0 +1,71 @@
+프로젝트: single-cell-spatial-transcriptomics (단일세포 · 공간전사체 분석 포트폴리오)
+최종 갱신: 2026-11-20
+
+위치
+  로컬   C:\Users\박혜윤\single-cell-spatial-transcriptomics
+  GitHub https://github.com/qkrvlfg123/single-cell-spatial-transcriptomics  (private)
+  ※ GitHub에는 작업 1과 Q&A 문서까지만 올라가 있음. 작업 2는 로컬에만 있음(미커밋).
+
+==================================================
+전체 진행 상황
+==================================================
+
+작업 1 — scRNA-seq (10x PBMC3k)                              [완료]
+  [완료] 1단계  QC → 정규화 → HVG
+                2,700 → 2,638 cells, 13,714 genes, HVG 1,838개
+  [완료] 2단계  PCA → kNN 그래프 → Leiden → UMAP
+                PC 10개, resolution 0.5, 9개 클러스터
+  [완료] 3단계  마커 유전자 기반 세포타입 annotation
+                Naive T, Memory CD4 T, CD8 T, NK, B, CD14+ Mono, FCGR3A+ Mono, DC, Platelet
+  [완료] 4단계  차등발현 + 경로분석 (CD14+ vs FCGR3A+ 단핵구)
+                시퀀싱 깊이 편향 발견 → downsampling 보정 (DE 277개 → 50개)
+  [완료] 5단계  README (01_scrna_pbmc3k/README.md)
+
+작업 2 — 공간전사체 (10x Visium, 성체 마우스 뇌 coronal)      [진행 중]
+  [완료] 1단계  로드 + QC
+                2,702 → 2,683 spots, 17,535 genes
+  [완료] 2단계  클러스터링 → 공간 도메인 식별
+                19개 도메인 (피질 L1~L6, 조롱박피질, 해마 CA1·DG/CA3·neuropil, 시상 2, GABA성 핵,
+                시상하부, 편도체 2, 줄무늬체, 백질, 뇌실, 수막)
+                인접 spot이 같은 클러스터인 비율 0.724 (무작위 0.064)
+  [완료] 3단계  공간 변이 유전자 (Moran's I)
+                12,887개 유전자 검정, I >= 0.3인 SVG 1,070개
+  [완료] 4단계  deconvolution (NNLS, 마우스 피질 scRNA-seq 레퍼런스 21개 세포타입)
+                가상 spot 검증 r = 0.989 / 피질 4개 층 모두 해당 층 뉴런이 1위
+                실제 Visium 적합도 R² 0.17 (플랫폼 차이 + 피질 외 영역은 레퍼런스에 없음)
+  [진행] 5단계  README (02_spatial_visium/README.md) — 1~4단계까지 작성됨
+
+==================================================
+남은 일
+==================================================
+  1. (완료) 작업 2의 4단계 deconvolution
+  2. (완료) 루트 README에 작업 2 주요 결과 추가
+  3. 작업 2를 커밋하고 GitHub에 push
+  4. docs/interview_qa.md 에 나머지 확인 질문의 답 정리
+     (지금은 작업 1 · 4단계의 3문항만 들어 있음)
+  5. 공개 전환 여부 결정 (현재 private)
+
+==================================================
+폴더 구조
+==================================================
+  README.md                      프로젝트 개요
+  PROGRESS.txt                   이 문서
+  01_scrna_pbmc3k/               작업 1: step1~4 스크립트, README, figures/, results/
+  02_spatial_visium/             작업 2: step1~4 스크립트, README, figures/, results/
+  docs/interview_qa.md           면접 대비 Q&A
+  data/                          자동 다운로드 데이터와 중간 산출물 (git 제외)
+  .venv/                         Python 3.12 가상환경 (git 제외)
+
+==================================================
+실행 방법
+==================================================
+  프로젝트 폴더에서, 단계 순서대로:
+    .venv\Scripts\python.exe 01_scrna_pbmc3k\step1_qc_norm_hvg.py
+    .venv\Scripts\python.exe 01_scrna_pbmc3k\step2_pca_cluster_umap.py
+    .venv\Scripts\python.exe 01_scrna_pbmc3k\step3_annotation.py
+    .venv\Scripts\python.exe 01_scrna_pbmc3k\step4_de_pathway.py
+    .venv\Scripts\python.exe 02_spatial_visium\step1_load_qc.py
+    .venv\Scripts\python.exe 02_spatial_visium\step2_spatial_domains.py
+    .venv\Scripts\python.exe 02_spatial_visium\step3_spatially_variable_genes.py
+    .venv\Scripts\python.exe 02_spatial_visium\step4_deconvolution.py   (첫 실행 시 레퍼런스 3.3GB 다운로드)
+  한글 출력이 깨지면 먼저:  $env:PYTHONIOENCODING='utf-8'

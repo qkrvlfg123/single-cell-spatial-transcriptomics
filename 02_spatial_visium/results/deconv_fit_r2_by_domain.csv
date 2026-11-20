@@ -1,0 +1,20 @@
+domain,deconv_r2
+Cortex L1,0.109
+Cortex L2/3,0.272
+Cortex L4,0.271
+Cortex L5,0.252
+Cortex L6,0.262
+Piriform cortex,0.249
+Hippocampus CA1,0.241
+Hippocampus DG/CA3,0.203
+Hippocampus neuropil,0.113
+Thalamus (lateral),0.115
+Thalamus (medial),0.14
+GABAergic nuclei (TRN/ZI),0.168
+Hypothalamus,0.138
+Amygdala (medial/central),0.147
+Amygdala (basolateral),0.18
+Striatum,0.142
+White matter,0.234
+Ventricle (ependyma/ChP),0.143
+Meninges,0.125
